@@ -18,11 +18,6 @@ class Application {
 	}
 
 	@Bean
-	CustomApplicationRunner customApplicationRunner() {
-		new CustomApplicationRunner()
-	}
-
-	@Bean
 	DirectExchange exchange( ApplicationProperties configuration ) {
 		new DirectExchange( configuration.exchange, true, false )
 	}

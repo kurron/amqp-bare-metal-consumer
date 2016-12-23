@@ -1,4 +1,4 @@
-package org.kurron.bare.metal.producer
+package org.kurron.bare.metal.consumer
 
 import org.springframework.amqp.core.Binding
 import org.springframework.amqp.core.BindingBuilder

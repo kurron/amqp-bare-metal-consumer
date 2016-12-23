@@ -1,4 +1,4 @@
-package org.kurron.bare.metal.producer
+package org.kurron.bare.metal.consumer
 
 import groovy.util.logging.Slf4j
 import org.springframework.amqp.core.Message
@@ -57,7 +57,7 @@ class CustomApplicationRunner implements ApplicationRunner {
                 .setContentType(contentType)
                 .setMessageId(generateMessageID())
                 .setTimestamp(generateTimeStamp())
-                .setAppId( 'bare-metal-producer' )
+                .setAppId( 'bare-metal-consumer' )
                 .setCorrelationIdString( generateCorrelationID() )
                 .setDeliveryMode(MessageDeliveryMode.NON_PERSISTENT)
                 .build()

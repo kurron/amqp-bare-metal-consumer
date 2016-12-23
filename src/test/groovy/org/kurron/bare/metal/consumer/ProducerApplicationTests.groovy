@@ -1,4 +1,4 @@
-package org.kurron.bare.metal.producer
+package org.kurron.bare.metal.consumer
 
 import org.junit.Test
 import org.junit.runner.RunWith

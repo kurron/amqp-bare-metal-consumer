@@ -1,11 +1,11 @@
-package org.kurron.bare.metal.producer
+package org.kurron.bare.metal.consumer
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 /**
  * Holds application properties.
  */
-@ConfigurationProperties( value = 'producer', ignoreUnknownFields = false )
+@ConfigurationProperties( value = 'consumer', ignoreUnknownFields = false )
 class ApplicationProperties {
 
     String exchange

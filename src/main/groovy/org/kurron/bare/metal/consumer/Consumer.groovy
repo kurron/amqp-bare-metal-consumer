@@ -3,6 +3,7 @@ package org.kurron.bare.metal.consumer
 import groovy.util.logging.Slf4j
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.core.MessageListener
+import org.springframework.beans.factory.annotation.Autowired
 
 import java.time.Duration
 import java.util.concurrent.atomic.AtomicInteger
@@ -19,6 +20,9 @@ class Consumer implements MessageListener {
     def now = new AtomicLong( 0 )
     def duration = new AtomicLong( 0 )
 
+    @Autowired
+    ApplicationProperties configuration
+
     @Override
     void onMessage( Message message ) {
         // only store the first timestamp
@@ -27,6 +31,6 @@ class Consumer implements MessageListener {
         def currentValue = counter.incrementAndGet()
         def durationMillis = duration.addAndGet( now.get() - start.get() )
         def durationISO = Duration.ofMillis( durationMillis )
-        0 == currentValue % 2000 ? log.info( '{} messages has taken {} milliseconds to process', currentValue, durationMillis ) : ''
+        0 == currentValue % configuration.modvalue ? log.info( '{} messages has taken {} milliseconds to process', currentValue, durationMillis ) : ''
     }
 }

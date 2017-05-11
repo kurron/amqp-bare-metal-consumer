@@ -11,4 +11,5 @@ class ApplicationProperties {
     String exchange
     String queue
     String routingKey
+    int modvalue
 }

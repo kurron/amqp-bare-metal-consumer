@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicLong
 @Slf4j
 class Consumer implements MessageListener {
 
-    def counter = new AtomicInteger( 0 )
-    def start = new AtomicLong( 0 )
-    def now = new AtomicLong( 0 )
-    def duration = new AtomicLong( 0 )
+    AtomicInteger counter = new AtomicInteger( 0 )
+    AtomicLong start = new AtomicLong( 0 )
+    AtomicLong now = new AtomicLong( 0 )
+    AtomicLong duration = new AtomicLong( 0 )
 
     @Autowired
     ApplicationProperties configuration

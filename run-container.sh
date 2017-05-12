@@ -19,6 +19,7 @@ CMD="docker run \
             --env spring_rabbitmq_listener_transaction-size=${PREFETCH_COUNT} \
             --env spring_rabbitmq_listener_concurrency=${CONCURRENCY} \
             --env spring_rabbitmq_listener_max-concurrency=${CONCURRENCY} \
+            --env spring_rabbitmq_cache_channel_size=${CONCURRENCY} \
             --env consumer_modvalue=${MOD_COUNT} \
             --interactive  \
             --name amqp-consumer \

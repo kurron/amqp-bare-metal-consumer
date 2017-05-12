@@ -29,8 +29,8 @@ class Consumer implements MessageListener {
         start.compareAndSet( 0, System.currentTimeMillis() )
         now.set( System.currentTimeMillis() )
         def currentValue = counter.incrementAndGet()
-        def durationMillis = duration.addAndGet( now.get() - start.get() )
+        def durationMillis = duration.updateAndGet({ now.get() - start.get() } )
         def durationISO = Duration.ofMillis( durationMillis )
-        0 == currentValue % configuration.modvalue ? log.info( '{} messages has taken {} milliseconds to process', currentValue, durationMillis ) : ''
+        0 == currentValue % configuration.modvalue ? log.info( '{} messages has taken {} seconds to process', currentValue, durationMillis/1000 ) : ''
     }
 }

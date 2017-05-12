@@ -1,6 +1,6 @@
 # Overview
 This project is a simple Docker image that provides a component that can be used to benchmark RabbitMQ deployments.
-This application will consume messages froma a queue.
+This application will consume messages from a a queue.
 
 # Prerequisites
 * a working [Docker](http://docker.io) engine

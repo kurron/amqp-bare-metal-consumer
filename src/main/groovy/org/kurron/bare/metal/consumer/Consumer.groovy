@@ -3,6 +3,7 @@ package org.kurron.bare.metal.consumer
 import groovy.util.logging.Slf4j
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.core.MessageListener
+import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.beans.factory.annotation.Autowired
 
 import java.time.Duration
@@ -24,6 +25,7 @@ class Consumer implements MessageListener {
     ApplicationProperties configuration
 
     @Override
+    @RabbitListener( queues = 'bare-metal-consumer' )
     void onMessage( Message message ) {
         // only store the first timestamp
         start.compareAndSet( 0, System.currentTimeMillis() )
